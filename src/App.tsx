@@ -1,9 +1,9 @@
-import Login from "./features/Auth/Login";
+import Register from "./features/Auth/Register";
 
 function App() {
   return (
     <>
-      <Login />
+      <Register />
     </>
   );
 }
