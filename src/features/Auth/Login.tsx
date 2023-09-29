@@ -1,73 +1,50 @@
 export default function Login() {
   return (
-    <section className="body-bg min-h-screen pt-12 md:pt-20 pb-6 px-2 md:px-0 bg-gradient-to-r from-violet-500 to-fuchsia-500">
-      <header className="max-w-lg mx-auto">
-        <a href="#">
-          <h1 className="text-4xl font-bold text-white text-center">Social</h1>
-        </a>
-      </header>
-
-      <main className="bg-white max-w-lg mx-auto p-8 md:p-12 my-10 rounded-lg shadow-2xl">
-        <section>
-          <h3 className="font-bold text-2xl">Welcome to Social</h3>
-          <p className="text-gray-600 pt-2">Sign in to your social account.</p>
-        </section>
-
-        <section className="mt-10">
-          <form className="flex flex-col" method="POST" action="#">
-            <div className="mb-6 pt-3 rounded bg-gray-200">
-              <label
-                className="block text-gray-700 text-sm font-bold mb-2 ml-3"
-                htmlFor="email"
-              >
-                Email
-              </label>
-              <input
-                type="text"
-                id="email"
-                className="bg-gray-200 rounded w-full text-gray-700 focus:outline-none border-b-4 border-gray-300 focus:border-purple-600 transition duration-500 px-3 pb-3"
-              />
-            </div>
-            <div className="mb-6 pt-3 rounded bg-gray-200">
-              <label
-                className="block text-gray-700 text-sm font-bold mb-2 ml-3"
-                htmlFor="password"
-              >
-                Password
-              </label>
-              <input
-                type="password"
-                id="password"
-                className="bg-gray-200 rounded w-full text-gray-700 focus:outline-none border-b-4 border-gray-300 focus:border-purple-600 transition duration-500 px-3 pb-3"
-              />
-            </div>
-            <div className="flex justify-end">
-              <a
-                href="#"
-                className="text-sm text-purple-600 hover:text-purple-700 hover:underline mb-6"
-              >
-                Forgot your password?
-              </a>
-            </div>
-            <button
-              className="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 rounded shadow-lg hover:shadow-xl transition duration-200"
-              type="submit"
+    <div className="min-h-screen w-100 px-6 pt-16 bg-gradient-to-r from-gray-100 to-gray-300">
+      <div className="rounded-lg border bg-card text-card-foreground shadow-sm max-w-[400px] mx-auto bg-white">
+        <div className="flex flex-col p-6 space-y-1">
+          <h3 className="font-semibold tracking-tight text-2xl">
+            Create an account
+          </h3>
+          <p className="text-sm text-black">
+            Enter your email below to create your account
+          </p>
+        </div>
+        <div className="p-6 pt-0 grid gap-4">
+          <div className="grid gap-2">
+            <label
+              className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+              htmlFor="email"
             >
-              Sign In
-            </button>
-          </form>
-        </section>
-      </main>
-
-      <div className="max-w-lg mx-auto text-center mt-12 mb-6">
-        <p className="text-white">
-          Don't have an account?{" "}
-          <a href="#" className="font-bold hover:underline">
-            Sign up
-          </a>
-          .
-        </p>
+              Email
+            </label>
+            <input
+              className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+              id="email"
+              placeholder="name@yourdomain.com"
+              type="email"
+            />
+          </div>
+          <div className="grid gap-2">
+            <label
+              className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+              htmlFor="password"
+            >
+              Password
+            </label>
+            <input
+              className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+              id="password"
+              type="password"
+            />
+          </div>
+        </div>
+        <div className="flex items-center p-6 pt-0">
+          <button className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-blue-600 text-white hover:bg-blue-600/90 h-10 px-4 py-2 w-full">
+            Create account
+          </button>
+        </div>
       </div>
-    </section>
+    </div>
   );
 }
