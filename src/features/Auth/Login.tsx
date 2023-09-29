@@ -4,10 +4,10 @@ export default function Login() {
       <div className="rounded-lg border bg-card text-card-foreground shadow-sm max-w-[400px] mx-auto bg-white">
         <div className="flex flex-col p-6 space-y-1">
           <h3 className="font-semibold tracking-tight text-2xl">
-            Create an account
+            Login
           </h3>
           <p className="text-sm text-black">
-            Enter your email below to create your account
+            Enter your email below to login your account
           </p>
         </div>
         <div className="p-6 pt-0 grid gap-4">

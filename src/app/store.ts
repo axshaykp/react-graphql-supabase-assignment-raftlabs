@@ -1,9 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import counterReducer from "../features/counter/counterSlice";
+import viewReducer from "../features/View/viewSlice";
 
 const store = configureStore({
   reducer: {
-    counter: counterReducer,
+    counter: viewReducer,
   },
 });
 
