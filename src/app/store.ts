@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import viewReducer from "../features/View/viewSlice";
+import storyReducer from "../features/View/storySlice";
 
 const store = configureStore({
   reducer: {
-    counter: viewReducer,
+    view: viewReducer,
+    story:storyReducer,
   },
 });
 

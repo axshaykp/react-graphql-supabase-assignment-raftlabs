@@ -1,11 +1,15 @@
 import { useSelector } from "react-redux";
 import { RootState } from "../../app/store";
+import Feed from "./Feed";
+import Profile from "../Auth/Profile";
 
 export default function ActiveView() {
-    const activeView = useSelector((state: RootState) => state.counter.value);
+  const activeView = useSelector((state: RootState) => state.view.value);
   return (
-    <div className="max-w-[400px] w-full bg-slate-500 justify-self-center">
-      {activeView}
-    </div>
+    <>
+      {activeView === "feed" && <Feed />}
+      {activeView === "profile" && <Profile />}
+      {activeView === "create" && activeView}
+    </>
   );
 }
