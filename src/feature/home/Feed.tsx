@@ -4,6 +4,7 @@ import SuggestedUser from "./SuggestedUser";
 import Tabs from "./Tabs";
 import { RootState } from "../../app/store";
 import Create from "./Create";
+import Profile from "../profile/Profile";
 
 export default function Feed() {
   const activeFeed = useSelector((state: RootState) => state.feed.value);
@@ -88,6 +89,11 @@ export default function Feed() {
               <SuggestedUser />
               <SuggestedUser />
             </div>
+          </>
+        )}
+        {activeFeed === "profile" && (
+          <>
+            <Profile />
           </>
         )}
       </div>
