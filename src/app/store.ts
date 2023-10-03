@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import feedReducer from "./feedSlice";
+import authReducer from "./authSlice";
 
 const store = configureStore({
   reducer: {
     feed: feedReducer,
+    auth: authReducer,
   },
 });
 

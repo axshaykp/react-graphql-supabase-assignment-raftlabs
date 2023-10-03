@@ -8,7 +8,8 @@ import {
 } from "@apollo/client";
 import { ApolloProvider } from "@apollo/client/react";
 import { setContext } from "@apollo/client/link/context";
-import LoginButton from "../feature/auth/LoginButton";
+import { useDispatch } from "react-redux";
+import { setEmail } from "./authSlice";
 
 const createApolloClient = (token: string) => {
   const httpLink = createHttpLink({
@@ -33,30 +34,26 @@ const createApolloClient = (token: string) => {
 };
 
 const Apollo = ({ children }: { children: ReactNode }) => {
-  const { isAuthenticated, getIdTokenClaims } =
+  const dispatch = useDispatch();
+  const { isLoading, isAuthenticated, getIdTokenClaims, loginWithRedirect } =
     useAuth0();
   const [client, setClient] =
     useState<ApolloClient<NormalizedCacheObject> | null>(null);
 
+  if (!isLoading && !isAuthenticated) {
+    loginWithRedirect();
+  }
+
   if (isAuthenticated && !client) {
     getIdTokenClaims().then((res) => {
-      console.log(res?.__raw);
+      console.log(res?.email);
       const apolloClient = createApolloClient(res?.__raw as string);
       setClient(apolloClient);
+      dispatch(setEmail(res?.email));
     });
   }
-  
-  if (!client || !isAuthenticated) {
-    return (
-      <div className="w-full min-h-screen flex flex-col items-center justify-center gap-3">
-        <h1 className="font-black text-3xl">Stories App</h1>
-        <p>Login to continue</p>
-        <LoginButton />
-      </div>
-    );
-  }
-  
-  return <ApolloProvider client={client}>{children}</ApolloProvider>;
+
+  return client && <ApolloProvider client={client}>{children}</ApolloProvider>;
 };
 
 export default Apollo;

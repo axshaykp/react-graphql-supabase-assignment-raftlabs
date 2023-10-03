@@ -39,18 +39,16 @@ export default function Search() {
             )
             .map((person, index) => {
               return (
-                <>
-                  <li key={index}>
-                    <div className="flex gap-3 items-center py-2 px-3 hover:bg-blue-500 hover:text-white rounded-lg hover:shadow-md">
-                      <img
-                        className="w-[30px] h-[30px] rounded-full"
-                        src="https://images.unsplash.com/profile-1675818354956-11c4aac9c130image?dpr=2&auto=format&fit=crop&w=150&h=150&q=60&crop=faces&bg=fff"
-                        alt=""
-                      />
-                      <p>{person.name}</p>
-                    </div>
-                  </li>
-                </>
+                <li key={index}>
+                  <div className="flex gap-3 items-center py-2 px-3 hover:bg-blue-500 hover:text-white rounded-lg hover:shadow-md">
+                    <img
+                      className="w-[30px] h-[30px] rounded-full"
+                      src="https://images.unsplash.com/profile-1675818354956-11c4aac9c130image?dpr=2&auto=format&fit=crop&w=150&h=150&q=60&crop=faces&bg=fff"
+                      alt=""
+                    />
+                    <p>{person.name}</p>
+                  </div>
+                </li>
               );
             })}
           {people.filter((person) =>

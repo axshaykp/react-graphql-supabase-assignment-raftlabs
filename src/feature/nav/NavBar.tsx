@@ -1,5 +1,4 @@
 import Search from "../home/Search";
-import User from "../home/User";
 import { TbPhotoSquareRounded } from "react-icons/tb";
 
 export default function NavBar() {
@@ -14,7 +13,7 @@ export default function NavBar() {
             FotoGram
           </a>
           <Search />
-          <User />
+          <div></div>
         </div>
       </div>
     </>
