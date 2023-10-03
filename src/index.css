@@ -1,3 +1,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body,
+html {
+  /* Hide scrollbar for Firefox */
+  scrollbar-width: none;
+  /* Hide scrollbar using overscroll-behavior (experimental) */
+  overscroll-behavior: none;
+}
+/* Hide scrollbar for webkit-based browsers */
+::-webkit-scrollbar {
+  width: 0; /* Hide the scrollbar completely */
+  /* OR */
+  display: none; /* Alternative method to hide scrollbar */
+  /* Additional styling if needed */
+}
+
+*{
+    transition-property: all;
+    transition-duration: 500ms;
+    transition-timing-function: ease-in;
+}

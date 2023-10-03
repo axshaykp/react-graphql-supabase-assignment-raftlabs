@@ -1,10 +1,11 @@
-import { useAuth0 } from "@auth0/auth0-react";
-import LoginButton from "./features/Auth/LoginButton";
-import View from "./features/View/View";
+// import Profile from "./feature/auth/Profile";
+import Home from "./feature/home/Home";
 
-function App() {
-  const { isAuthenticated } = useAuth0();
-  return <>{isAuthenticated ? <View /> : <LoginButton />}</>;
+export default function App() {
+  return (
+    <>
+      {/* <Profile /> */}
+      <Home />
+    </>
+  );
 }
-
-export default App;
