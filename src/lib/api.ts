@@ -41,3 +41,14 @@ export const SET_PROFILE = gql`
     }
   }
 `;
+
+export const CREATE_POST = gql`
+  mutation Post($content: String = "", $image_url: String = "") {
+    insert_posts(objects: { content: $content, image_url: $image_url }) {
+      returning {
+        content
+        image_url
+      }
+    }
+  }
+`;

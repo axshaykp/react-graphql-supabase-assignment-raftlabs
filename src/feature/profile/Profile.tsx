@@ -1,6 +1,6 @@
 import { BiSolidImageAdd } from "react-icons/bi";
 import UploadFile from "./UploadFile";
-import { useMutation, useQuery } from "@apollo/client";
+import { useMutation } from "@apollo/client";
 import { GET_PROFILE, SET_PROFILE } from "../../lib/api";
 import LogoutButton from "../auth/LogoutButton";
 import { useSelector } from "react-redux";
@@ -11,22 +11,21 @@ export default function Profile() {
   const [editing, setEditing] = useState(false);
   const [name, setName] = useState<string | undefined>();
   const email = useSelector((state: RootState) => state.auth.email);
+  const avatar = useSelector((state: RootState) => state.auth.avatar);
+  const initialName = useSelector((state: RootState) => state.auth.name);
   const [updateProfile] = useMutation(SET_PROFILE, {
     refetchQueries: [GET_PROFILE, "GetProfile"],
     variables: { email, name },
   });
-  const { data } = useQuery(GET_PROFILE, {
-    variables: { email },
-  });
 
-  if (data) {
+  if (initialName) {
     return (
       <div className="p-3">
         <div className="w-full bg-white rounded shadow p-3 flex gap-3">
           <div className="w-[100px] h-[100px] text-8xl text-blue-500 relative">
             <img
               className="object-cover w-[100px] h-[100px] rounded-full"
-              src={data.users[0]?.avatar}
+              src={avatar}
               alt=""
             />
             <div className="text-xl bg-black rounded-full flex items-center justify-center p-2 text-white absolute right-[10px] bottom-[10px]">
@@ -57,7 +56,7 @@ export default function Profile() {
             </>
           ) : (
             <div className="flex flex-col gap-2">
-              <p>Name : {data.users[0]?.name}</p>
+              <p>Name : {initialName}</p>
               <div className="flex gap-3">
                 <LogoutButton />
                 <button
